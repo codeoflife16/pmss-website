@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .menu {
+            cursor: pointer;
+            font-size: 24px;
+            margin: 20px;
+        }
+        .container {
+            display: none;
+            margin-top: 20px;
+        }
+        .left-pane {
+            float: left;
+            width: 60%;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+        .right-pane {
+            float: right;
+            width: 35%;
+            padding: 20px;
+            background-color: #e6e6e6;
+        }
+        .right-pane img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto;
+        }
+        .right-pane .info {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .right-pane .info p {
+            margin: 5px 0;
+        }
+        .right-pane .buttons {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .right-pane .buttons button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+        .clear {
+            clear: both;
+        }
+.profile-container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+        .profile-info {
+            margin-bottom: 20px;
+        }
+        .profile-info p {
+            margin: 5px 0;
+        }
+        .profile-info input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: none; /* Hidden by default */
+        }
+.buttons {
+            text-align: center;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+        }
+       .upload-container {
+            margin-top: 20px;
+        }
+        input[type="file"] {
+            padding: 10px;
+        }
+.activity-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        .activity-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .step-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        .step-description {
+            font-size: 18px;
+        }
+        .link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .link a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-size: 18px;
+            font-weight: bold
+    </style>
+</head>
+<body>
+
+    <div class="menu" onclick="toggleMenu()">&#x22EE;</div>
+
+    <div class="container" id="container">
+        <div class="left-pane">
+            <h2>Welcome</h2>
+            <p>Candidate Name: Priyanka Kundu</p>
+            <div class="sidebar">
+        <h3>Dashboard</h3>
+        <a href="dashboard.html">Dashboard</a>
+                   <h4>Application Details</h4>
+            <ul>
+                <li>Fill Details</li>
+                <li>Edit Application</li>
+                <li>View Application</li>
+                <li>Track Application Process</li>
+                           </ul>
+<div class="activity-container">
+        <h2>Candidate Activity</h2>
+        
+        <!-- Step 1: Application -->
+        <div class="activity-step">
+            <div class="step-number">1</div>
+            <div class="step-description">Application</div>
+        </div>
+
+        <!-- Step 2: Form Fill Up -->
+        <div class="activity-step">
+            <div class="step-number">2</div>
+            <div class="step-description">Form Fill Up</div>
+        </div>
+
+        <!-- Step 3: Upload Document -->
+        <div class="activity-step">
+            <div class="step-number">3</div>
+            <div class="step-description">Upload Document</div>
+        </div>
+
+        <!-- Step 4: Submission -->
+        <div class="activity-step">
+            <div class="step-number">4</div>
+            <div class="step-description">Submission</div>
+        </div>
+
+        <!-- Step 5: Status Track -->
+        <div class="activity-step">
+            <div class="step-number">5</div>
+            <div class="step-description">Status Track</div>
+        </div>
+
+             <div class="link">
+            <a href="activity.html">Go to Candidate Profile</a>
+        </div>
+    </div>
+
+
+        </div>
+        <div class="right-pane">
+            <img src="candidate-photo.jpg" alt="Candidate Photo">
+            <div class="info">
+                <p>Name: Priyanka Kundu</p>
+                <p>Email: montukundu884@gmail.com</p>
+            </div>
+            <div class="profile-container">
+        <div class="profile-info">
+            <p id="name-display">Name: Priyanka Kundu</p>
+            <input type="text" id="name-input" value="Priyanka Kundu">
+            <p id="email-display">Email: montukundu884@gmail.com</p>
+            <input type="email" id="email-input" value="montukundu884@gmail.com">
+        </div>
+        <div class="buttons">
+            <button id="edit-btn" onclick="editProfile()">Edit</button>
+            <button id="save-btn" onclick="saveProfile()" style="display: none;">Save</button>
+        </div>
+    </div>
+
+    <script>
+        function editProfile() {
+            document.getElementById("name-display").style.display = "none";
+            document.getElementById("email-display").style.display = "none";
+            document.getElementById("name-input").style.display = "block";
+            document.getElementById("email-input").style.display = "block";
+            document.getElementById("edit-btn").style.display = "none";
+            document.getElementById("save-btn").style.display = "inline-block";
+        }
+
+        function saveProfile() {
+            var name = document.getElementById("name-input").value;
+            var email = document.getElementById("email-input").value;
+
+            document.getElementById("name-display").textContent = "Name: " + name;
+            document.getElementById("email-display").textContent = "Email: " + email;
+
+            document.getElementById("name-display").style.display = "block";
+            document.getElementById("email-display").style.display = "block";
+            document.getElementById("name-input").style.display = "none";
+            document.getElementById("email-input").style.display = "none";
+            document.getElementById("edit-btn").style.display = "inline-block";
+            document.getElementById("save-btn").style.display = "none";
+        }
+    </script>
+                <div class="upload-container">
+        <input type="file" id="photoUpload" accept="image/*">            
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var container = document.getElementById("container");
+            if (container.style.display === "none" || container.style.display === "") {
+                container.style.display = "block";
+            } else {
+                container.style.display = "none";
+            }
+        }
+
+    </script>
+
+</body>
+</html>
