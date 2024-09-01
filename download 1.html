@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Application Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        .details-section {
+            margin-bottom: 20px;
+        }
+        .details-section label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .details-section p {
+            margin: 0;
+            padding: 5px 0;
+        }
+        .button-container {
+            text-align: center;
+        }
+        .button-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Application Details</h1>
+
+        <!-- Details Section -->
+        <div class="details-section">
+            <label for="name">Name:</label>
+            <p id="name">John Doe</p>
+        </div>
+
+        <div class="details-section">
+            <label for="email">Email:</label>
+            <p id="email">john.doe@example.com</p>
+        </div>
+
+        <div class="details-section">
+            <label for="state">State:</label>
+            <p id="state">California</p>
+        </div>
+
+        <div class="details-section">
+            <label for="phone">Phone Number:</label>
+            <p id="phone">+1234567890</p>
+        </div>
+
+        <div class="details-section">
+            <label for="accountNumber">Account Number:</label>
+            <p id="accountNumber">987654321</p>
+        </div>
+
+        <div class="details-section">
+            <label for="applicationNumber">Application Number:</label>
+            <p id="applicationNumber">123456</p>
+        </div>
+
+        <!-- Download Button -->
+        <div class="button-container">
+            <button type="button" onclick="downloadDetails()">Download</button>
+        </div>
+    </div>
+
+    <script>
+        function downloadDetails() {
+            // Collect the details from the page
+            const name = document.getElementById('name').textContent;
+            const email = document.getElementById('email').textContent;
+            const state = document.getElementById('state').textContent;
+            const phone = document.getElementById('phone').textContent;
+            const accountNumber = document.getElementById('accountNumber').textContent;
+            const applicationNumber = document.getElementById('applicationNumber').textContent;
+
+            // Create the content for the file
+            const content = `
+                Name: ${name}
+                Email: ${email}
+                State: ${state}
+                Phone Number: ${phone}
+                Account Number: ${accountNumber}
+                Application Number: ${applicationNumber}
+            `;
+
+            // Create a Blob with the content
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+
+            // Create a link and click it to download the file
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'application-details.txt';
+            document.body.appendChild(a);
+            a.click();
+
+            // Clean up
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+
+</body>
+</html>

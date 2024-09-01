@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review and Submit Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        .review-section {
+            margin-bottom: 20px;
+        }
+        .review-section label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .review-section p {
+            margin: 0;
+            padding: 5px 0;
+        }
+        .button-container {
+            text-align: right;
+            margin-top: 20px;
+        }
+        .button-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .confirmation-message {
+            display: none;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #4CAF50;
+        }
+        .confirmation-message a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Review and Submit Application</h1>
+
+        <!-- Review Section -->
+        <div class="review-section">
+            <label for="name">Name:</label>
+            <p id="name">Priyanka Kundu </p>
+        </div>
+
+        <div class="review-section">
+            <label for="email">Email:</label>
+            <p id="email">montukundu884@gmail.com</p>
+        </div>
+
+        <div class="review-section">
+            <label for="applicationId">Application ID:</label>
+            <p id="applicationId">123456</p>
+        </div>
+
+        <!-- Add other review sections as needed -->
+
+        <!-- Save and Submit Button -->
+        <div class="button-container">
+            <button type="button" onclick="submitApplication()">Save and Submit</button>
+        </div>
+
+        <!-- Confirmation Message -->
+        <div id="confirmationMessage" class="confirmation-message">
+            Application submitted successfully! <a href="path/to/application.pdf" download>Download your application</a>
+        </div>
+    </div>
+
+    <script>
+        function submitApplication() {
+            // Simulate the application submission process
+            document.getElementById('confirmationMessage').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
