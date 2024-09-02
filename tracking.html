@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarship Process Tracking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background-color: #d9534f;
+        }
+        .timeline li {
+            margin-bottom: 50px;
+            position: relative;
+            width: 50%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease forwards;
+        }
+        .timeline li:nth-child(odd) {
+            left: 0;
+        }
+        .timeline li:nth-child(even) {
+            left: 50%;
+        }
+        .timeline li:nth-child(odd)::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            right: -10px;
+            width: 0; 
+            height: 0; 
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 10px solid #fff;
+        }
+        .timeline li:nth-child(even)::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: -10px;
+            width: 0; 
+            height: 0; 
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 10px solid #fff;
+        }
+        .timeline li h3 {
+            color: #d9534f;
+            margin: 0;
+        }
+        .timeline li p {
+            margin: 10px 0 0;
+            color: #666;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Scholarship Process Tracking</h1>
+        <ul class="timeline">
+            <li>
+                <h3>Application Submitted</h3>
+                <p>Your application has been submitted successfully.</p>
+            </li>
+            <li>
+                <h3>Under Review</h3>
+                <p>Your application is being reviewed by our team.</p>
+            </li>
+            <li>
+                <h3>Shortlisted</h3>
+                <p>Congratulations! Your application has been shortlisted.</p>
+            </li>
+            <li>
+                <h3>Final Review</h3>
+                <p>Your application is under final review by the selection committee.</p>
+            </li>
+            <li>
+                <h3>Scholarship Awarded</h3>
+                <p>Congratulations! You have been awarded the scholarship.</p>
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>
