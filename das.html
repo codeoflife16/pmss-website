@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .header button {
+            background-color: #ffffff;
+            border: 1px solid #007bff;
+            color: #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .header button:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+        .container {
+            display: flex;
+            flex: 1;
+            margin: 20px;
+        }
+        .sidebar {
+            width: 25%;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .sidebar h2 {
+            margin-top: 0;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .sidebar ul li a:hover {
+            color: #0056b3;
+        }
+        .content {
+            width: 75%;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .content h2 {
+            margin-top: 0;
+        }
+        .content p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Dashboard</h1>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="#" onclick="showContent('candidate')">Candidate</a></li>
+                <li><a href="#" onclick="showContent('application')">Application Form</a></li>
+                <li><a href="#" onclick="showContent('settings')">Other Settings</a></li>
+            </ul>
+        </div>
+        <div class="content" id="content">
+            <h2>Welcome to the Dashboard</h2>
+            <p>Select an option from the menu to see the content here.</p>
+        </div>
+    </div>
+
+    <script>
+        function showContent(section) {
+            const content = document.getElementById('content');
+            switch (section) {
+                case 'candidate':
+                    content.innerHTML = '<h2>Candidate Information</h2><p>Details about the candidates will be displayed here.</p>';
+                    break;
+                case 'application':
+                    content.innerHTML = '<h2>Application Form</h2><p>The application form and its details will be displayed here.</p>';
+                    break;
+                case 'settings':
+                    content.innerHTML = '<h2>Other Settings</h2><p>Settings and configuration options will be displayed here.</p>';
+                    break;
+                default:
+                    content.innerHTML = '<h2>Welcome to the Dashboard</h2><p>Select an option from the menu to see the content here.</p>';
+            }
+        }
+
+        function logout() {
+            alert('Logging out...');
+            // Add logout functionality here (e.g., redirect to login page)
+        }
+    </script>
+
+</body>
+</html>
