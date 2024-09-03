@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Watch - Fall Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .watch-container {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            width: 300px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .time {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .status {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .sensor-status {
+            color: #00FF00;
+        }
+        .fall-detected {
+            color: #FF0000;
+            font-weight: bold;
+        }
+        .heart-beat {
+            color: #FF69B4;
+        }
+    </style>
+</head>
+<body>
+    <div class="watch-container">
+        <div class="time" id="time">00:00:00</div>
+        <div class="status">Heart Beat: <span class="heart-beat" id="heartBeat">75 BPM</span></div>
+        <div class="status">Sensor: <span class="sensor-status" id="sensorStatus">Active</span></div>
+        <div class="status">Fall Detected: <span class="fall-detected" id="fallDetected">No</span></div>
+    </div>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('time').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        // This would be replaced by real sensor data in a functional application
+        function updateHeartBeat() {
+            const heartBeat = Math.floor(Math.random() * (120 - 60 + 1) + 60);
+            document.getElementById('heartBeat').textContent = `${heartBeat} BPM`;
+        }
+
+        function checkFall() {
+            const fallDetected = Math.random() < 0.1;  // 10% chance of fall detection
+            document.getElementById('fallDetected').textContent = fallDetected ? "Yes" : "No";
+        }
+
+        function updateSensorStatus() {
+            const status = Math.random() > 0.1 ? "Active" : "Inactive";
+            document.getElementById('sensorStatus').textContent = status;
+            document.getElementById('sensorStatus').style.color = status === "Active" ? "#00FF00" : "#FF0000";
+        }
+
+        setInterval(() => {
+            updateTime();
+            updateHeartBeat();
+            checkFall();
+            updateSensorStatus();
+        }, 1000);
+    </script>
+</body>
+</html>
